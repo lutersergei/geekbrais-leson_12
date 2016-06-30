@@ -3,7 +3,7 @@ require_once 'initial.php';
 require_once 'db.php';
 require_once 'classes.php';
 //Запрос массива с информацией по все объектам недвижимости, с помощью статического метода класса RealtyArray(без создания объекта класса)
-$Realty_array = Realty::get_all_realty();
+$Object_array = Realty::get_all_realty();
 ?>
 <!doctype html>
 <html lang="ru">
@@ -31,21 +31,21 @@ $Realty_array = Realty::get_all_realty();
             <tbody>
                                             <!--Pаспаковка данных-->
             <?php
-            var_dump($Realty_array);
-            foreach ($Realty_array as $realty_one)
+//            var_dump($Object_array);
+            foreach ($Object_array as $object)
             {
                 echo <<<HTML
 <tr>                                        
-                                            <td>{$realty_one['realty_id']}</td>
-                                            <td>{$realty_one['area']}</td>
-                                            <td>{$realty_one['rooms']}</td>
-                                            <td>{$realty_one['floor']}</td>
-                                            <td>{$realty_one['adress']}</td>
-                                            <td>{$realty_one['price']}</td>
+                                            <td>{$object->id}</td>
+                                            <td>{$object->area}</td>
+                                            <td>{$object->rooms }</td>
+                                            <td>{$object->floor }</td>
+                                            <td>{$object->adress}</td>
+                                            <td>{$object->price}</td>
                                             <td>
                                             <div class="btn-group" role="group">
-                                            <a href="view.php?id={$realty_one['realty_id']}" class="btn btn-default">View</a>
-                                            <a href="edit.php?id={$realty_one['realty_id']}" class="btn btn-default">Edit</a>
+                                            <a href="view.php?id={$object->id}" class="btn btn-default">View</a>
+                                            <a href="edit.php?id={$object->id}" class="btn btn-default">Edit</a>
                                             </div>
                                             </td>
                                             </tr>

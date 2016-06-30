@@ -70,11 +70,22 @@ SQL;
         global $link;
         $query="SELECT * FROM `realty` ORDER BY `realty`.`realty_id` ASC ";
         $data_result = mysqli_query($link,$query);
-        $Realty_array=array();
+        $apartment_array=array();
         while($row = mysqli_fetch_assoc($data_result))
         {
-            $Realty_array[]=$row;
+            $apartment_array[]=$row;
         }
-        return $Realty_array;
+        $Object_array=array();
+        foreach ($apartment_array as $item) {
+            $object = new Realty();
+            $object->id = $item['realty_id'];
+            $object->area = $item['area'];
+            $object->rooms = $item['rooms'];
+            $object->floor = $item['floor'];
+            $object->adress = $item['adress'];
+            $object->price = $item['price'];
+            $Object_array[]=$object;
+        }
+        return $Object_array;
     }
 }
