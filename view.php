@@ -49,17 +49,15 @@ $realty = new Realty($id);
     <tbody>
     <tr>
 <!--        Выводим информацию из полей объекта-->
-        <?php echo <<<HTML
-        <td>$realty->id</td>
-        <td>$realty->area</td>
-        <td>$realty->rooms</td>
-        <td>$realty->floor</td>
-        <td>$realty->adress</td>
-        <td>$realty->price</td>
-        <td>$realty->description</td>
+
+        <td><?= $realty->get_id() ?></td>
+        <td><?= $realty->area?></td>
+        <td><?= $realty->rooms?></td>
+        <td><?= $realty->floor?></td>
+        <td><?= $realty->adress?></td>
+        <td><?= $realty->price?></td>
+        <td><?= $realty->description?></td>
         <td><a href="index.php" class="btn btn-default">Back</a></td>
-HTML
-?>
     </tr>
     </tbody>
 </table>

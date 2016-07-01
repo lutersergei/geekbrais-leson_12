@@ -33,25 +33,27 @@ $Object_array = Realty::get_all_realty();
             <?php
 //            var_dump($Object_array);
             foreach ($Object_array as $object)
-            {
-                echo <<<HTML
-<tr>                                        
-                                            <td>{$object->id}</td>
-                                            <td>{$object->area}</td>
-                                            <td>{$object->rooms }</td>
-                                            <td>{$object->floor }</td>
-                                            <td>{$object->adress}</td>
-                                            <td>{$object->price}</td>
+            {?>
+
+                                            <tr>                                        
+                                            <td><?= $object->get_id() ?></td>
+                                            <td><?= $object->area ?></td>
+                                            <td><?= $object->rooms  ?></td>
+                                            <td><?= $object->floor  ?></td>
+                                            <td><?= $object->adress ?></td>
+                                            <td><?= $object->price ?></td>
                                             <td>
                                             <div class="btn-group" role="group">
-                                            <a href="view.php?id={$object->id}" class="btn btn-default">View</a>
-                                            <a href="edit.php?id={$object->id}" class="btn btn-default">Edit</a>
+                                                <a href="view.php?id=<?= $object->get_id() ?>" class="btn btn-default">View</a>
+                                                <a href="edit.php?id=<?= $object->get_id() ?>" class="btn btn-default">Edit</a>
                                             </div>
                                             </td>
                                             </tr>
-                                            
-HTML;
-            }?>
+
+
+                <?php
+            }
+            ?>
             </tbody>
         </table>
     </div>
